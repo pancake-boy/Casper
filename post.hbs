@@ -10,7 +10,14 @@ into the {body} of the default.hbs template --}}
 </header>
 
 {{!-- Everything inside the #post tags pulls data from the post --}}
+{{!-- AC 2019/07/07: check for tag and assign lang var which is used in default.hbs --}}
 {{#post}}
+  {{#has tag="zh"}}
+    {{#contentFor "lang"}}zh{{/contentFor}}
+  {{else}}
+    {{#contentFor "lang"}}en{{/contentFor}}
+  {{/has}}
+{{/post}}
 
 <main id="site-main" class="site-main outer">
     <div class="inner">
